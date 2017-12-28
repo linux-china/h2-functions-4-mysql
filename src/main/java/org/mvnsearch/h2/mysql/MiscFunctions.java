@@ -4,6 +4,9 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  * misc functions
  *
@@ -43,6 +46,16 @@ public class MiscFunctions {
         return new String(Base64.decodeBase64(text.getBytes()));
     }
 
+    public static String format(Double value, Integer p) {
+        NumberFormat format = NumberFormat.getInstance();
+        format.setMaximumFractionDigits(p);
+        return format.format(value);
+    }
 
+    public static String format(Double value, Integer p, String locale) {
+        NumberFormat format = NumberFormat.getInstance(new Locale(locale));
+        format.setMaximumFractionDigits(p);
+        return format.format(value);
+    }
 
 }
