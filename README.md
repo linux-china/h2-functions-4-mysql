@@ -11,6 +11,7 @@ So I create this project to create H2 user defined functions for MySQL.
 ### function list
 
 * UNIX_TIMESTAMP()
+* FROM_UNIXTIME()
 
 
 ### integration with flyway db
