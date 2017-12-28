@@ -15,6 +15,8 @@ https://dev.mysql.com/doc/refman/5.7/en/functions.html
 ### String functions
 
 * hex & unhex
+* FROM_BASE64 & TO_BASE64
+* FORMAT
 
 ### Date & Time
 
