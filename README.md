@@ -8,10 +8,26 @@ I always use H2 for unit test instead of real MySQL(docker), but some MySQL func
 So I create this project to create H2 user defined functions for MySQL.
  
 
-### function list
+# Functions
+
+https://dev.mysql.com/doc/refman/5.7/en/functions.html
+
+### String functions
+
+### Date & Time
 
 * UNIX_TIMESTAMP()
 * FROM_UNIXTIME()
+
+### cast function
+
+### Bit function
+
+### encryption & compression
+
+### json function
+
+### Miscellaneous functions
 
 
 ### integration with flyway db
