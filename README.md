@@ -32,8 +32,3 @@ CREATE ALIAS UNIX_TIMESTAMP FOR "com.lazada.storage.broker.utils.H2Functions.uni
 
 
 ## References
-
-
-http://11.163.149.52:7001/p/4/qiaolinglong-kids39-magnetic-double-sided-wooden-drawing-board-1496422476-17930482-cf9d685922e4c867950ade609e3e79a9-product.jpg_200x200q90.jpg_.webp
-http://filebroker-lzd.alibaba.com/p/4/qiaolinglong-kids39-magnetic-double-sided-wooden-drawing-board-1496422476-17930482-cf9d685922e4c867950ade609e3e79a9-product.jpg_200x200q90.jpg_.webp
-https://lzd-img-sg.alicdn.com/p/4/qiaolinglong-kids39-magnetic-double-sided-wooden-drawing-board-1496422476-17930482-cf9d685922e4c867950ade609e3e79a9-product.jpg_200x200q90.jpg_.webp
