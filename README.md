@@ -14,6 +14,8 @@ https://dev.mysql.com/doc/refman/5.7/en/functions.html
 
 ### String functions
 
+* hex & unhex
+
 ### Date & Time
 
 * UNIX_TIMESTAMP()
@@ -28,7 +30,6 @@ https://dev.mysql.com/doc/refman/5.7/en/functions.html
 * md5
 * sha1
 * password
-* hex & unhex
 
 ### json function
 
@@ -52,7 +53,14 @@ spring.datasource.username=sa
 * create src/test/resources/db/migration/h2/V0__functions.sql with following:
 
 ```h2
-CREATE ALIAS UNIX_TIMESTAMP FOR "com.lazada.storage.broker.utils.H2Functions.unixTimestamp"
+CREATE ALIAS UNIX_TIMESTAMP FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.unixTimestamp";
+CREATE ALIAS FROM_UNIXTIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.fromUnixTime";
+CREATE ALIAS VERSION FOR "org.mvnsearch.h2.mysql.MiscFunctions.version";
+CREATE ALIAS MD5 FOR "org.mvnsearch.h2.mysql.MiscFunctions.md5";
+CREATE ALIAS SHA1 FOR "org.mvnsearch.h2.mysql.MiscFunctions.sha1";
+CREATE ALIAS HEX FOR "org.mvnsearch.h2.mysql.MiscFunctions.hex";
+CREATE ALIAS UNHEX FOR "org.mvnsearch.h2.mysql.MiscFunctions.unhex";
+CREATE ALIAS PASSWORD FOR "org.mvnsearch.h2.mysql.MiscFunctions.password";
 ```
 
 
