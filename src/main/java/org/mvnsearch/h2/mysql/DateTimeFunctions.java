@@ -4,11 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * h2 use defined functions for MySQL
+ * date time functions for mysql
  *
  * @author linux_china
  */
-public class Functions {
+public class DateTimeFunctions {
 
     /**
      * function for UNIX_TIMESTAMP
