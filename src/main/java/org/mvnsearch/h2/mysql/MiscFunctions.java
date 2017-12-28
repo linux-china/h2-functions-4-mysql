@@ -1,5 +1,6 @@
 package org.mvnsearch.h2.mysql;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -33,6 +34,15 @@ public class MiscFunctions {
     public static String password(String text) throws Exception {
         return "*" + sha1(unhex(sha1(text)));
     }
+
+    public static String base64(String text) throws Exception {
+        return Base64.encodeBase64String(text.getBytes());
+    }
+
+    public static String unbase64(String text) throws Exception {
+        return new String(Base64.decodeBase64(text.getBytes()));
+    }
+
 
 
 }
