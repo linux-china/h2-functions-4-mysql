@@ -5,3 +5,5 @@ SELECT version();
 SELECT md5('abcd');
 SELECT concat('*', sha1(unhex(sha1('123456'))));
 SELECT PASSWORD('123456');
+SELECT TO_BASE64('abc');
+SELECT FROM_BASE64(TO_BASE64('abc'));
