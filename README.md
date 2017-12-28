@@ -32,3 +32,6 @@ CREATE ALIAS UNIX_TIMESTAMP FOR "com.lazada.storage.broker.utils.H2Functions.uni
 
 
 ## References
+
+* h2 functions: http://www.h2database.com/html/functions.html
+* mysql functions: https://dev.mysql.com/doc/refman/5.7/en/func-op-summary-ref.html
