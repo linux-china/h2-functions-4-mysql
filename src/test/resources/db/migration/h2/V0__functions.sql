@@ -8,3 +8,4 @@ CREATE ALIAS UNHEX FOR "org.mvnsearch.h2.mysql.MiscFunctions.unhex";
 CREATE ALIAS PASSWORD FOR "org.mvnsearch.h2.mysql.MiscFunctions.password";
 CREATE ALIAS TO_BASE64 FOR "org.mvnsearch.h2.mysql.MiscFunctions.base64";
 CREATE ALIAS FROM_BASE64 FOR "org.mvnsearch.h2.mysql.MiscFunctions.unbase64";
+CREATE ALIAS FORMAT FOR "org.mvnsearch.h2.mysql.MiscFunctions.format";
