@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.nio.charset.Charset;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +25,10 @@ public class FunctionsTest {
         Statement statement = connection.createStatement();
         List<String> sentences = getSQLSentences("/testing.sql");
         for (String sentence : sentences) {
-            statement.executeQuery(sentence);
-            System.out.println("Succeeded:"+sentence);
+            ResultSet resultSet = statement.executeQuery(sentence);
+            resultSet.next();
+            System.out.println("Succeeded: " + sentence + " = " + resultSet.getString(1));
+            resultSet.close();
         }
         statement.close();
     }
