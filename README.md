@@ -25,9 +25,17 @@ https://dev.mysql.com/doc/refman/5.7/en/functions.html
 
 ### encryption & compression
 
+* md5
+* sha1
+* password
+* hex & unhex
+
 ### json function
 
+
 ### Miscellaneous functions
+
+* version
 
 
 ### integration with flyway db
@@ -52,3 +60,4 @@ CREATE ALIAS UNIX_TIMESTAMP FOR "com.lazada.storage.broker.utils.H2Functions.uni
 
 * h2 functions: http://www.h2database.com/html/functions.html
 * mysql functions: https://dev.mysql.com/doc/refman/5.7/en/func-op-summary-ref.html
+
