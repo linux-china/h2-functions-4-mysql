@@ -1,15 +1,15 @@
 package org.mvnsearch.h2.mysql;
 
-import org.apache.commons.io.IOUtils;
 import org.h2.jdbcx.JdbcDataSource;
+import org.h2.tools.RunScript;
+import org.h2.util.IOUtils;
+import org.h2.util.StringUtils;
 import org.junit.Test;
 
-import java.nio.charset.Charset;
+import java.io.Reader;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * functions test
@@ -23,12 +23,16 @@ public class FunctionsTest {
         JdbcDataSource dataSource = dataSource();
         Connection connection = dataSource.getConnection();
         Statement statement = connection.createStatement();
-        List<String> sentences = getSQLSentences("/testing.sql");
+        Reader reader = IOUtils.getReader(this.getClass().getResourceAsStream("/testing.sql"));
+        String content = IOUtils.readStringAndClose(reader, -1);
+        String[] sentences = StringUtils.arraySplit(content, ';', true);
         for (String sentence : sentences) {
-            ResultSet resultSet = statement.executeQuery(sentence);
-            resultSet.next();
-            System.out.println("Succeeded: " + sentence + " = " + resultSet.getString(1));
-            resultSet.close();
+            if (sentence != null && !sentence.isEmpty() && !sentence.startsWith("--")) {
+                ResultSet resultSet = statement.executeQuery(sentence);
+                resultSet.next();
+                System.out.println("Succeeded: " + sentence + " = " + resultSet.getString(1));
+                resultSet.close();
+            }
         }
         statement.close();
     }
@@ -37,28 +41,7 @@ public class FunctionsTest {
         JdbcDataSource dataSource = new JdbcDataSource();
         dataSource.setURL("jdbc:h2:mem:public");
         dataSource.setUser("sa");
-        Connection connection = dataSource.getConnection();
-        Statement statement = connection.createStatement();
-        List<String> sentences = getSQLSentences("/db/migration/h2/V0__functions.sql");
-        for (String sentence : sentences) {
-            statement.execute(sentence);
-        }
-        statement.close();
+        RunScript.execute(dataSource.getConnection(), IOUtils.getReader(this.getClass().getResourceAsStream("/db/migration/h2/V0__functions.sql")));
         return dataSource;
-    }
-
-    private List<String> getSQLSentences(String resourcePath) throws Exception {
-        List<String> sqlSentences = new ArrayList<>();
-        List<String> lines = IOUtils.readLines(this.getClass().getResourceAsStream(resourcePath), Charset.defaultCharset());
-        for (String line : lines) {
-            line = line.trim();
-            if (!line.isEmpty() && !line.startsWith("--")) {
-                if (line.endsWith(";")) {
-                    line = line.substring(0, line.length() - 1);
-                }
-                sqlSentences.add(line);
-            }
-        }
-        return sqlSentences;
     }
 }
