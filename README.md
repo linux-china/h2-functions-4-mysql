@@ -21,6 +21,7 @@ In you pom.xml add following dependency:
 
 * Flyway with Spring Boot: automatically(classpath:db/migration/h2/V0_functions.sql), no configuration.
 * Manual: Add following code in your application. datasource is h2 datasource.
+
 ```
 org.h2.tools.RunScript.execute(dataSource.getConnection(), IOUtils.getReader(this.getClass().getResourceAsStream("/db/migration/h2/V0__functions.sql")));
 ```
@@ -56,17 +57,12 @@ Todo
 
 * version
 
-
-### integration with flyway db
-
-* Please create application-test.properties with following code:
-
-
-## References
+# References
 
 * H2 functions: http://www.h2database.com/html/functions.html
 * MySQL functions: https://dev.mysql.com/doc/refman/5.7/en/func-op-summary-ref.html
-* application-test.properties with H2 support
+* application-test.properties with H2 MySQL Mode support
+
 ```properties
 ### datasource
 spring.datasource.driver-class-name=org.h2.Driver
