@@ -2,13 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.mvnsearch</groupId>
+    <groupId>org.mvnsearch.h2</groupId>
     <artifactId>h2-functions-4-mysql</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>h4-functions-4-mysql</name>
+    <name>h2-functions-4-mysql</name>
     <url>https://github.com/linux-china/h2-functions-4-mysql</url>
+    <description>H2 user defined functions for MySQL compatible</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
