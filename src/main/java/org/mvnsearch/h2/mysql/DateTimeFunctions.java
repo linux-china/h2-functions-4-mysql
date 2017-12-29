@@ -1,6 +1,7 @@
 package org.mvnsearch.h2.mysql;
 
-import java.text.SimpleDateFormat;
+import org.apache.commons.lang3.time.DateUtils;
+
 import java.util.Date;
 
 /**
@@ -25,8 +26,7 @@ public class DateTimeFunctions {
      * @return current time millis
      */
     public static Long unixTimestamp(String text) throws Exception {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD HH:MM:SS");
-        return dateFormat.parse(text).getTime();
+        return DateUtils.parseDate(text, "YYYY-MM-DD HH:MM:SS", "YYYY-MM-DD").getTime();
     }
 
     public static Date fromUnixTime(Long unixTime) {
