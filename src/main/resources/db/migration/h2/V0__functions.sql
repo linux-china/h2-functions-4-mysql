@@ -1,5 +1,7 @@
 CREATE ALIAS UNIX_TIMESTAMP FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.unixTimestamp";
 CREATE ALIAS FROM_UNIXTIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.fromUnixTime";
+CREATE ALIAS ADDDATE FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.addDate";
+CREATE ALIAS ADDTIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.addTime";
 CREATE ALIAS VERSION FOR "org.mvnsearch.h2.mysql.MiscFunctions.version";
 CREATE ALIAS MD5 FOR "org.mvnsearch.h2.mysql.MiscFunctions.md5";
 CREATE ALIAS SHA1 FOR "org.mvnsearch.h2.mysql.MiscFunctions.sha1";
