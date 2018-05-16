@@ -18,34 +18,6 @@ public class MiscFunctions {
         return "5.6.25";
     }
 
-    public static String md5(String text) {
-        return DigestUtils.md5Hex(text);
-    }
-
-    public static String sha1(String text) {
-        return DigestUtils.sha1Hex(text);
-    }
-
-    public static String hex(String text) {
-        return Hex.encodeHexString(text.getBytes());
-    }
-
-    public static String unhex(String text) throws Exception {
-        return new String(Hex.decodeHex(text));
-    }
-
-    public static String password(String text) throws Exception {
-        return "*" + sha1(unhex(sha1(text)));
-    }
-
-    public static String base64(String text) throws Exception {
-        return Base64.encodeBase64String(text.getBytes());
-    }
-
-    public static String unbase64(String text) throws Exception {
-        return new String(Base64.decodeBase64(text.getBytes()));
-    }
-
     public static String format(Double value, Integer p) {
         NumberFormat format = NumberFormat.getInstance();
         format.setMaximumFractionDigits(p);
