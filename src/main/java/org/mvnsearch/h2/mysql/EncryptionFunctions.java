@@ -3,6 +3,7 @@ package org.mvnsearch.h2.mysql;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.RandomUtils;
 
 import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA_224;
 
@@ -58,6 +59,13 @@ public class EncryptionFunctions {
             return DigestUtils.sha384Hex(text);
         } else if (hashLength == 512) {
             return DigestUtils.sha512Hex(text);
+        }
+        return null;
+    }
+
+    public static byte[] randomBytes(Integer length) {
+        if (length > 0 && length < 1024) {
+            return RandomUtils.nextBytes(length);
         }
         return null;
     }
