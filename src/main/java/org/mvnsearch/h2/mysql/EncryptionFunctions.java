@@ -18,6 +18,10 @@ public class EncryptionFunctions {
         return DigestUtils.sha1Hex(text);
     }
 
+    public static String SHA(String text) {
+        return SHA1(text);
+    }
+
     public static String SHA2(String text, Integer hashLength) throws Exception {
         if (hashLength == 0 || hashLength == 256) {
             return DigestUtils.sha256Hex(text);
