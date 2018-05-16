@@ -12,6 +12,7 @@ CREATE ALIAS UNHEX FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.unhex";
 CREATE ALIAS PASSWORD FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.password";
 CREATE ALIAS TO_BASE64 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.base64";
 CREATE ALIAS FROM_BASE64 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.unbase64";
+CREATE ALIAS RANDOM_BYTES FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.randomBytes";
 -- misc
 CREATE ALIAS FORMAT FOR "org.mvnsearch.h2.mysql.MiscFunctions.format";
 CREATE ALIAS VERSION FOR "org.mvnsearch.h2.mysql.MiscFunctions.version";
