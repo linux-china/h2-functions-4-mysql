@@ -107,9 +107,9 @@ public class DateTimeFunctions {
     }
 
     public static String secondsToTime(Integer totalSeconds) {
-        int seconds = totalSeconds % 60;
-        int minutes = totalSeconds / 60 % 60;
-        int hours = totalSeconds / (3600) % 24;
+        long seconds = totalSeconds % 60;
+        long minutes = totalSeconds / 60 % 60;
+        long hours = totalSeconds / (3600) % 24;
         return padNumber(hours) + ":" + padNumber(minutes) + ":" + padNumber(seconds);
     }
 
@@ -153,7 +153,7 @@ public class DateTimeFunctions {
     }
 
     public static String makeTime(Integer hours, Integer minutes, Integer seconds) {
-        return padNumber(hours) + ":" + padNumber(minutes) + ":" + padNumber(seconds);
+        return padNumber((long) hours) + ":" + padNumber((long) minutes) + ":" + padNumber((long) seconds);
     }
 
     public static Integer sleep(Integer seconds) throws Exception {
@@ -239,8 +239,23 @@ public class DateTimeFunctions {
         return months1 - months2;
     }
 
-    private static String padNumber(Integer number) {
-        if (number < 10) return "0" + number;
+    public static String timeDiff(String dateStr1, String dateStr2) throws Exception {
+        Date date1 = parseDate(dateStr1);
+        Date date2 = parseDate(dateStr2);
+        String sign = "";
+        if (date1.getTime() < date2.getTime()) {
+            sign = "-";
+        }
+        Long totalMilliSeconds = Math.abs(date1.getTime() - date2.getTime());
+        long milliSeconds = totalMilliSeconds % 1000;
+        Long seconds = totalMilliSeconds / 1000 / 60 % 60;
+        Long minutes = totalMilliSeconds / 1000 / 3600 % 60;
+        long hours = totalMilliSeconds / 1000 / 3600;
+        return sign + hours + ":" + padNumber(minutes) + ":" + padNumber(seconds) + "." + milliSeconds;
+    }
+
+    private static String padNumber(Long number) {
+        if (number < 10L) return "0" + number;
         return String.valueOf(number);
     }
 
