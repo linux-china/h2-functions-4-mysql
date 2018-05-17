@@ -8,6 +8,9 @@ CREATE ALIAS UTC_TIMESTAMP FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.utcTime
 CREATE ALIAS UTC_DATE FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.utcDate";
 CREATE ALIAS UTC_TIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.utcTime";
 CREATE ALIAS FROM_DAYS FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.fromDays";
+CREATE ALIAS TO_DAYS FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.toDays";
+CREATE ALIAS TO_SECONDS FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.toSeconds";
+CREATE ALIAS TIME_TO_SEC FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.timeToSeconds";
 -- encrypt
 CREATE ALIAS MD5 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.md5";
 CREATE ALIAS SHA1 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.sha1";
