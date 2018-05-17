@@ -109,18 +109,8 @@ public class DateTimeFunctions {
 
     public static String dateFormat(String timeText, String mysqlPattern) throws Exception {
         Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss");
-        //todo %H:%i:%s
-        Map<String, String> convert = new HashMap<>();
-        convert.put("%H", "HH");
-        convert.put("%i", "mm");
-        convert.put("%s", "ss");
-        convert.put("%W", "E");
-        convert.put("%Y", "yyyy");
-        convert.put("%m", "mm");
-        convert.put("%M", "M");
-        convert.put("%d", "dd");
         String javaPattern = mysqlPattern;
-        for (Map.Entry<String, String> entry : convert.entrySet()) {
+        for (Map.Entry<String, String> entry : patternMapper().entrySet()) {
             javaPattern = javaPattern.replace(entry.getKey(), entry.getValue());
         }
         return DateFormatUtils.format(date, javaPattern);
@@ -152,8 +142,35 @@ public class DateTimeFunctions {
         return 0;
     }
 
+    public static String strToDate(String dateStr, String mysqlPattern) throws Exception {
+        String javaPattern = mysqlPattern;
+        for (Map.Entry<String, String> entry : patternMapper().entrySet()) {
+            javaPattern = javaPattern.replace(entry.getKey(), entry.getValue());
+        }
+        Date date = DateUtils.parseDate(dateStr, javaPattern);
+        if (mysqlPattern.contains("%Y")) {
+            return DateFormatUtils.format(date, "yyyy-MM-dd");
+        } else {
+            return DateFormatUtils.format(date, "HH:mm:ss");
+        }
+    }
+
     private static String padNumber(Integer number) {
         if (number < 10) return "0" + number;
         return String.valueOf(number);
+    }
+
+    private static Map<String, String> patternMapper() {
+        //todo %H:%i:%s
+        Map<String, String> convert = new HashMap<>();
+        convert.put("%H", "HH");
+        convert.put("%i", "mm");
+        convert.put("%s", "ss");
+        convert.put("%W", "E");
+        convert.put("%Y", "yyyy");
+        convert.put("%m", "M");
+        convert.put("%M", "M");
+        convert.put("%d", "dd");
+        return convert;
     }
 }
