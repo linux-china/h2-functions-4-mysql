@@ -63,4 +63,8 @@ public class StringFunctions {
             return String.join(delim, Arrays.copyOfRange(parts, parts.length + count < 0 ? 0 : parts.length + count, parts.length));
         }
     }
+
+    public static Integer strCmp(String text1, String text2) {
+        return text1.compareTo(text2);
+    }
 }
