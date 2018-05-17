@@ -41,4 +41,8 @@ public class StringFunctions {
                 ? 1 : 0;
 
     }
+
+    public static Integer isUUID(String uuid) {
+        return uuid.matches("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$") ? 1 : 0;
+    }
 }
