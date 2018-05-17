@@ -58,7 +58,7 @@ N: not available,  Y: same,  A: available
 |CHAR|CHAR|Y|
 |CHAR_LENGTH|CHAR_LENGTH|Y|
 |CHARACTER_LENGTH|CHARACTER_LENGTH|Y|
-|CHARSET||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|CHARSET||A|
 |COALESCE|COALESCE|Y|
 |COERCIBILITY||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |COLLATION||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
@@ -66,23 +66,23 @@ N: not available,  Y: same,  A: available
 |CONCAT|CONCAT|Y|
 |CONCAT_WS|CONCAT_WS|Y|
 |CONNECTION_ID||A|
-|CONV||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|CONV||A|
 |CONVERT|CONVERT|Y|
-|CONVERT_TZ||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|CONVERT_TZ||A|
 |COS|COS|Y|
 |COT|COT|Y|
 |COUNT|COUNT|Y|
 |COUNT|COUNT|Y|
-|CRC32||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|CRC32||A|
 |CREATE_DH_PARAMETERS||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
-|CREATE_DIGEST||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|CREATE_DIGEST||A|
 |CUME_DIST||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |CURDATE|CURDATE|Y|
 |CURRENT_DATE|CURRENT_DATE|Y|
-|CURRENT_ROLE||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|CURRENT_ROLE||A|
 |CURRENT_TIME|CURRENT_TIME|Y|
 |CURRENT_TIMESTAMP|CURRENT_TIMESTAMP|Y|
-|CURRENT_USER||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|CURRENT_USER||A|
 |CURTIME|CURTIME|Y|
 |DATABASE|DATABASE|Y|
 |DATE||A|
@@ -108,7 +108,7 @@ N: not available,  Y: same,  A: available
 |EXPORT_SET||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |EXTRACT|EXTRACT|Y|
 |ExtractValue||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
-|FIELD||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|FIELD||A|
 |FIND_IN_SET||A|
 |FIRST_VALUE||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |FLOOR|FLOOR|Y|
@@ -170,7 +170,7 @@ N: not available,  Y: same,  A: available
 |LTRIM|LTRIM|Y|
 |MAKE_SET||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |MAKEDATE||A|
-|MAKETIME||N|
+|MAKETIME||Y|
 |MASTER_POS_WAIT||N|
 |MAX|MAX|Y|
 |MBRContains||N|
@@ -183,8 +183,8 @@ N: not available,  Y: same,  A: available
 |MBRTouches||N|
 |MBRWithin||N|
 |MD5||A|
-|MICROSECOND||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
-|MID||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|MICROSECOND||A|
+|MID||A|
 |MIN|MIN|Y|
 |MINUTE|MINUTE|Y|
 |MOD|MOD|Y|
@@ -200,11 +200,11 @@ N: not available,  Y: same,  A: available
 |NULLIF|NULLIF|Y|
 |OCT||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |OCTET_LENGTH|OCTET_LENGTH|Y|
-|ORD||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|ORD||A|
 |PASSWORD||A|
 |PERCENT_RANK||N|
-|PERIOD_ADD||N|
-|PERIOD_DIFF||N|
+|PERIOD_ADD||A|
+|PERIOD_DIFF||A|
 |PI|PI|Y|
 |Point||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |Polygon||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
@@ -212,7 +212,7 @@ N: not available,  Y: same,  A: available
 |POW||A|
 |POWER|POWER|Y|
 |QUARTER|QUARTER|Y|
-|QUOTE||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|QUOTE||A|
 |RADIANS|RADIANS|Y|
 |RAND|RAND|Y|
 |RANDOM_BYTES||A|
@@ -225,7 +225,7 @@ N: not available,  Y: same,  A: available
 |RELEASE_LOCK||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |REPEAT|REPEAT|Y|
 |REPLACE|REPLACE|Y|
-|REVERSE||N|
+|REVERSE||A|
 |RIGHT|RIGHT|Y|
 |ROLES_GRAPHML||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |ROUND|ROUND|Y|
@@ -260,12 +260,12 @@ N: not available,  Y: same,  A: available
 |SUBTIME||A|
 |SUM|SUM|Y|
 |SYSDATE|SYSDATE|Y|
-|SYSTEM_USER||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|SYSTEM_USER||A|
 |TAN|TAN|Y|
 |TIME||A|
-|TIME_FORMAT||N|
+|TIME_FORMAT||A|
 |TIME_TO_SEC||A|
-|TIMEDIFF||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|TIMEDIFF||A|
 |TIMESTAMP||A|
 |TIMESTAMPADD||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |TIMESTAMPDIFF||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
@@ -297,11 +297,11 @@ N: not available,  Y: same,  A: available
 |WAIT_FOR_EXECUTED_GTID_SET||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |WAIT_UNTIL_SQL_THREAD_AFTER_GTIDS||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |WEEK|WEEK|Y|
-|WEEKDAY||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
-|WEEKOFYEAR||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|WEEKDAY||A|
+|WEEKOFYEAR||A|
 |WEIGHT_STRING||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
 |YEAR|YEAR|Y|
-|YEARWEEK||![#f03c15](https://placehold.it/15/f03c15/000000?text=N)|
+|YEARWEEK||A|
 
 
 # References
