@@ -44,12 +44,12 @@ public class DateTimeFunctions {
     }
 
     public static Date addDate(String dateText, Integer days) throws Exception {
-        Date date = DateUtils.parseDate(dateText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
+        Date date = parseDate(dateText);
         return new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
     }
 
     public static Date subDate(String dateText, Integer days) throws Exception {
-        Date date = DateUtils.parseDate(dateText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
+        Date date = parseDate(dateText);
         return new Date(date.getTime() - days * 24L * 60L * 60L * 1000L);
     }
 
@@ -67,7 +67,7 @@ public class DateTimeFunctions {
 
 
     public static String date(String text) throws Exception {
-        Date date = DateUtils.parseDate(text, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
+        Date date = parseDate(text);
         return DateFormatUtils.format(date, "yyyy-MM-dd");
     }
 
@@ -95,7 +95,7 @@ public class DateTimeFunctions {
     }
 
     public static Long toSeconds(String timeText) throws Exception {
-        Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yy-MM-dd HH:mm:ss");
+        Date date = parseDate(timeText);
         long days = ChronoUnit.DAYS.between(ZERO_START_TIME.toLocalDate(), UNIX_START_TIME.toLocalDate());
         return date.getTime() / 1000 + days * 24 * 60 * 60;
     }
@@ -113,12 +113,12 @@ public class DateTimeFunctions {
     }
 
     public static String time(String timeText) throws Exception {
-        Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
+        Date date = parseDate(timeText);
         return DateFormatUtils.format(date, " HH:mm:ss");
     }
 
     public static String dateFormat(String timeText, String mysqlPattern) throws Exception {
-        Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss");
+        Date date = parseDate(timeText);
         String javaPattern = mysqlPattern;
         for (Map.Entry<String, String> entry : mysqlToJavaDateFormat().entrySet()) {
             javaPattern = javaPattern.replace(entry.getKey(), entry.getValue());
@@ -127,8 +127,7 @@ public class DateTimeFunctions {
     }
 
     public static String lastDay(String dateText) throws Exception {
-        Date date = DateUtils.parseDate(dateText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
-        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate localDate = parseLocalDate(dateText);
         LocalDate lastDay = localDate.with(TemporalAdjusters.lastDayOfMonth());
         return lastDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
@@ -183,6 +182,21 @@ public class DateTimeFunctions {
         return yearWeek(dateStr, 0);
     }
 
+    public static Integer weekOfYear(String dateStr) throws Exception {
+        LocalDate localDate = parseLocalDate(dateStr);
+        return localDate.get(WeekFields.of(Locale.getDefault()).weekOfYear());
+    }
+
+    public static Integer weekDay(String dateStr) throws Exception {
+        LocalDate localDate = parseLocalDate(dateStr);
+        int firstDayOfWeek = WeekFields.of(Locale.getDefault()).getFirstDayOfWeek().getValue();
+        if (firstDayOfWeek == 7) {
+            return localDate.get(WeekFields.of(Locale.getDefault()).dayOfWeek()) - 2;
+        } else {
+            return localDate.get(WeekFields.of(Locale.getDefault()).dayOfWeek()) - 1;
+        }
+    }
+
     private static String padNumber(Integer number) {
         if (number < 10) return "0" + number;
         return String.valueOf(number);
@@ -220,4 +234,13 @@ public class DateTimeFunctions {
         convert.put("%y", "yy");
         return convert;
     }
+
+    public static Date parseDate(String dateStr) throws Exception {
+        return DateUtils.parseDate(dateStr, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
+    }
+
+    public static LocalDate parseLocalDate(String dateStr) throws Exception {
+        return parseDate(dateStr).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
 }
