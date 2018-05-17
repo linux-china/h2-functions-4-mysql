@@ -129,4 +129,10 @@ public class DateTimeFunctions {
     public static Date now() {
         return new Date();
     }
+
+    public static Date makeDate(Integer year, Integer days) {
+        LocalDateTime start = LocalDateTime.of(year, 1, 1, 0, 0, 0);
+        LocalDateTime end = start.plusDays(days-1);
+        return java.sql.Date.valueOf(end.toLocalDate());
+    }
 }
