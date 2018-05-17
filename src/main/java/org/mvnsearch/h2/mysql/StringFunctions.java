@@ -1,6 +1,7 @@
 package org.mvnsearch.h2.mysql;
 
 import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
@@ -48,5 +49,18 @@ public class StringFunctions {
 
     public static String reverse(String text) {
         return new StringBuilder(text).reverse().toString();
+    }
+
+    public static String subStringIndex(String text, String delim, Integer count) {
+        String newDelim = delim;
+        if (delim.contains(".")) {
+            newDelim = StringUtils.replace(delim, ".", "\\.");
+        }
+        String[] parts = text.split(newDelim);
+        if (count > 0) {
+            return String.join(delim, Arrays.copyOfRange(parts, 0, count < parts.length ? count : parts.length));
+        } else {
+            return String.join(delim, Arrays.copyOfRange(parts, parts.length + count < 0 ? 0 : parts.length + count, parts.length));
+        }
     }
 }
