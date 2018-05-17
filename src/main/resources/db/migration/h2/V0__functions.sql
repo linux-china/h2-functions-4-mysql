@@ -27,6 +27,7 @@ CREATE ALIAS SUBTIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.subTime";
 CREATE ALIAS YEARWEEK FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.yearWeek";
 CREATE ALIAS WEEKOFYEAR FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.weekOfYear";
 CREATE ALIAS WEEKDAY FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.weekDay";
+CREATE ALIAS MICROSECOND FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.microSecond";
 -- encrypt
 CREATE ALIAS MD5 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.md5";
 CREATE ALIAS SHA1 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.sha1";
@@ -39,6 +40,7 @@ CREATE ALIAS FROM_BASE64 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.unbase6
 CREATE ALIAS RANDOM_BYTES FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.randomBytes";
 CREATE ALIAS AES_ENCRYPT FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.aesEncrypt";
 CREATE ALIAS AES_DECRYPT FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.aesDecrypt";
+CREATE ALIAS CRC32 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.crc32";
 -- string functions
 CREATE ALIAS BIN FOR "org.mvnsearch.h2.mysql.StringFunctions.bin";
 CREATE ALIAS UUID_SHORT FOR "org.mvnsearch.h2.mysql.StringFunctions.uuidShort";
@@ -56,4 +58,5 @@ CREATE ALIAS FORMAT FOR "org.mvnsearch.h2.mysql.MiscFunctions.format";
 CREATE ALIAS VERSION FOR "org.mvnsearch.h2.mysql.MiscFunctions.version";
 CREATE ALIAS CONNECTION_ID FOR "org.mvnsearch.h2.mysql.MiscFunctions.connectId";
 CREATE ALIAS SESSION_USER FOR "org.mvnsearch.h2.mysql.MiscFunctions.sessionUser";
+CREATE ALIAS SYSTEM_USER FOR "org.mvnsearch.h2.mysql.MiscFunctions.sessionUser";
 
