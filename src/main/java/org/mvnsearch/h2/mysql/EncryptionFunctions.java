@@ -100,6 +100,10 @@ public class EncryptionFunctions {
         return checksum.getValue();
     }
 
+    public static byte[] createDigest(String digestType, String text) {
+        return new DigestUtils(digestType.replace("SHA","SHA-")).digest(text);
+    }
+
     public static String aesDecrypt(byte[] content, Object password) throws Exception {
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.DECRYPT_MODE, generateSecretKey(password));
