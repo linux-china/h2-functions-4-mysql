@@ -95,6 +95,13 @@ public class DateTimeFunctions {
         return date.getTime() / 1000;
     }
 
+    public static String secondsToTime(Integer totalSeconds) {
+        int seconds = totalSeconds % 60;
+        int minutes = totalSeconds / 60 % 60;
+        int hours = totalSeconds / (3600) % 24;
+        return padNumber(hours) + ":" + padNumber(minutes) + ":" + padNumber(seconds);
+    }
+
     public static String time(String timeText) throws Exception {
         Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
         return DateFormatUtils.format(date, " HH:mm:ss");
@@ -137,6 +144,11 @@ public class DateTimeFunctions {
     }
 
     public static String makeTime(Integer hours, Integer minutes, Integer seconds) {
-        return hours + ":" + minutes + ":" + seconds;
+        return padNumber(hours) + ":" + padNumber(minutes) + ":" + padNumber(seconds);
+    }
+
+    private static String padNumber(Integer number) {
+        if (number < 10) return "0" + number;
+        return String.valueOf(number);
     }
 }
