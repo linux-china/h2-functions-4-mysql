@@ -13,6 +13,7 @@ CREATE ALIAS TO_DAYS FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.toDays";
 CREATE ALIAS TO_SECONDS FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.toSeconds";
 CREATE ALIAS TIME_TO_SEC FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.timeToSeconds";
 CREATE ALIAS DATE_FORMAT FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.dateFormat";
+CREATE ALIAS LAST_DAY FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.lastDay";
 -- encrypt
 CREATE ALIAS MD5 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.md5";
 CREATE ALIAS SHA1 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.sha1";
@@ -31,6 +32,7 @@ CREATE ALIAS UUID_SHORT FOR "org.mvnsearch.h2.mysql.StringFunctions.uuidShort";
 CREATE ALIAS FIND_IN_SET FOR "org.mvnsearch.h2.mysql.StringFunctions.findInSet";
 CREATE ALIAS IS_IPV4 FOR "org.mvnsearch.h2.mysql.StringFunctions.isIpv4";
 CREATE ALIAS IS_IPV6 FOR "org.mvnsearch.h2.mysql.StringFunctions.isIpv6";
+CREATE ALIAS IS_UUID FOR "org.mvnsearch.h2.mysql.StringFunctions.isUUID";
 -- math functions
 CREATE ALIAS POW FOR "org.mvnsearch.h2.mysql.MathFunctions.pow";
 -- misc
