@@ -3,6 +3,7 @@ package org.mvnsearch.h2.mysql;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -61,5 +62,10 @@ public class DateTimeFunctions {
 
     public static String utcTime() {
         return DateFormatUtils.format(new Date(), "HH:mm:ss", TimeZone.getTimeZone("UTC"));
+    }
+
+    public static Date fromDays(Integer days) {
+        LocalDateTime localDateTime = LocalDateTime.of(0, 1, 1, 0, 0);
+        return java.sql.Date.valueOf(localDateTime.plusDays(days).toLocalDate());
     }
 }
