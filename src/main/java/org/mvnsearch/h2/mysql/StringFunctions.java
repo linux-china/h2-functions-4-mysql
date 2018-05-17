@@ -3,8 +3,11 @@ package org.mvnsearch.h2.mysql;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.*;
 import java.util.Arrays;
 import java.util.regex.Pattern;
+import java.util.zip.DeflaterOutputStream;
+import java.util.zip.InflaterInputStream;
 
 /**
  * String functions
@@ -66,5 +69,37 @@ public class StringFunctions {
 
     public static Integer strCmp(String text1, String text2) {
         return text1.compareTo(text2);
+    }
+
+    public static byte[] compress(String text) throws Exception {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        OutputStream out = new DeflaterOutputStream(bos);
+        ByteArrayInputStream in = new ByteArrayInputStream(text.getBytes());
+        shovelInToOut(in, out);
+        in.close();
+        out.close();
+        return bos.toByteArray();
+    }
+
+    public static String unCompress(byte[] compressed) throws Exception {
+        InputStream in =
+                new InflaterInputStream(new ByteArrayInputStream(compressed));
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        shovelInToOut(in, out);
+        in.close();
+        out.close();
+        return new String(out.toByteArray());
+    }
+
+    /**
+     * Shovels all data from an input stream to an output stream.
+     */
+    private static void shovelInToOut(InputStream in, OutputStream out)
+            throws IOException {
+        byte[] buffer = new byte[1000];
+        int len;
+        while ((len = in.read(buffer)) > 0) {
+            out.write(buffer, 0, len);
+        }
     }
 }
