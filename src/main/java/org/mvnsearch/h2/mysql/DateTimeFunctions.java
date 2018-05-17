@@ -1,5 +1,6 @@
 package org.mvnsearch.h2.mysql;
 
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
 import java.util.Date;
@@ -42,5 +43,10 @@ public class DateTimeFunctions {
         Date date = DateUtils.parseDate(dateText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.S", "HH:mm:ss", "HH:mm:ss.S", "dd HH:mm:ss", "dd HH:mm:ss.S");
         Date time = DateUtils.parseDate(timeText, "HH:mm:ss", "HH:mm:ss.S", "dd HH:mm:ss", "dd HH:mm:ss.S");
         return new Date(date.getTime() + time.getTime());
+    }
+
+    public static String date(String text) throws Exception {
+        Date date = DateUtils.parseDate(text, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
+        return DateFormatUtils.format(date, "yyyy-MM-dd");
     }
 }
