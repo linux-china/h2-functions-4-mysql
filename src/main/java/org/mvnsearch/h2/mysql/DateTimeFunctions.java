@@ -147,6 +147,11 @@ public class DateTimeFunctions {
         return padNumber(hours) + ":" + padNumber(minutes) + ":" + padNumber(seconds);
     }
 
+    public static Integer sleep(Integer seconds) throws Exception {
+        Thread.sleep(seconds * 1000);
+        return 0;
+    }
+
     private static String padNumber(Integer number) {
         if (number < 10) return "0" + number;
         return String.valueOf(number);
