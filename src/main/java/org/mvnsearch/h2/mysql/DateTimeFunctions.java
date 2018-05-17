@@ -110,7 +110,7 @@ public class DateTimeFunctions {
     public static String dateFormat(String timeText, String mysqlPattern) throws Exception {
         Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss");
         String javaPattern = mysqlPattern;
-        for (Map.Entry<String, String> entry : patternMapper().entrySet()) {
+        for (Map.Entry<String, String> entry : mysqlToJavaDateFormat().entrySet()) {
             javaPattern = javaPattern.replace(entry.getKey(), entry.getValue());
         }
         return DateFormatUtils.format(date, javaPattern);
@@ -144,11 +144,11 @@ public class DateTimeFunctions {
 
     public static String strToDate(String dateStr, String mysqlPattern) throws Exception {
         String javaPattern = mysqlPattern;
-        for (Map.Entry<String, String> entry : patternMapper().entrySet()) {
+        for (Map.Entry<String, String> entry : mysqlToJavaDateFormat().entrySet()) {
             javaPattern = javaPattern.replace(entry.getKey(), entry.getValue());
         }
         Date date = DateUtils.parseDate(dateStr, javaPattern);
-        if (mysqlPattern.contains("%Y")) {
+        if (mysqlPattern.toLowerCase().contains("%y")) {
             return DateFormatUtils.format(date, "yyyy-MM-dd");
         } else {
             return DateFormatUtils.format(date, "HH:mm:ss");
@@ -160,17 +160,36 @@ public class DateTimeFunctions {
         return String.valueOf(number);
     }
 
-    private static Map<String, String> patternMapper() {
-        //todo %H:%i:%s
+    private static Map<String, String> mysqlToJavaDateFormat() {
         Map<String, String> convert = new HashMap<>();
-        convert.put("%H", "HH");
-        convert.put("%i", "mm");
-        convert.put("%s", "ss");
-        convert.put("%W", "E");
-        convert.put("%Y", "yyyy");
-        convert.put("%m", "M");
-        convert.put("%M", "M");
+        convert.put("%a", "E");
+        convert.put("%b", "M");
+        convert.put("%c", "M");
         convert.put("%d", "dd");
+        convert.put("%e", "d");
+        convert.put("%f", "S");
+        convert.put("%H", "HH");
+        convert.put("%h", "H");
+        convert.put("%I", "h");
+        convert.put("%i", "mm");
+        convert.put("%J", "D");
+        convert.put("%k", "h");
+        convert.put("%l", "h");
+        convert.put("%M", "M");
+        convert.put("%m", "MM");
+        convert.put("%p", "a");
+        convert.put("%r", "hh:mm:ss a");
+        convert.put("%s", "ss");
+        convert.put("%S", "ss");
+        convert.put("%T", "HH:mm:ss");
+        convert.put("%U", "w");
+        convert.put("%u", "w");
+        convert.put("%V", "w");
+        convert.put("%v", "w");
+        convert.put("%W", "EEE");
+        convert.put("%w", "F");
+        convert.put("%Y", "yyyy");
+        convert.put("%y", "yy");
         return convert;
     }
 }
