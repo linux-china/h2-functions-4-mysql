@@ -225,6 +225,20 @@ public class DateTimeFunctions {
         return DateFormatUtils.format(java.sql.Date.valueOf(localDate), "yyyy-MM-dd HH:mm:ss");
     }
 
+    public static Integer periodAdd(Integer yearAndMonth, Integer months) throws Exception {
+        String text = String.valueOf(yearAndMonth);
+        Date date = DateUtils.parseDate(text, "yyyyMM", "yyMM");
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate newDate = localDate.plusMonths(months);
+        return newDate.getYear() * 100 + newDate.getMonthValue();
+    }
+
+    public static Integer periodDiff(Integer yearAndMonth1, Integer yearAndMonth2) {
+        int months1 = ((yearAndMonth1 / 100) * 12) + yearAndMonth1 % 100;
+        int months2 = ((yearAndMonth2 / 100) * 12) + yearAndMonth2 % 100;
+        return months1 - months2;
+    }
+
     private static String padNumber(Integer number) {
         if (number < 10) return "0" + number;
         return String.valueOf(number);
