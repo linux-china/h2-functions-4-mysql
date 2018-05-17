@@ -18,6 +18,8 @@ CREATE ALIAS AES_DECRYPT FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.aesDecr
 -- string functions
 CREATE ALIAS UUID FOR "org.mvnsearch.h2.mysql.StringFunctions.uuid";
 CREATE ALIAS BIN FOR "org.mvnsearch.h2.mysql.StringFunctions.bin";
+-- math functions
+CREATE ALIAS CEIL FOR "org.mvnsearch.h2.mysql.MathFunctions.ceil";
 -- misc
 CREATE ALIAS FORMAT FOR "org.mvnsearch.h2.mysql.MiscFunctions.format";
 CREATE ALIAS VERSION FOR "org.mvnsearch.h2.mysql.MiscFunctions.version";
