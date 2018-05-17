@@ -26,51 +26,6 @@ In you pom.xml add following dependency:
 org.h2.tools.RunScript.execute(dataSource.getConnection(), IOUtils.getReader(this.getClass().getResourceAsStream("/db/migration/h2/V0__functions.sql")));
 ```
 
-# Functions
-
-### String functions
-
-* hex & unhex
-* FROM_BASE64 & TO_BASE64
-* FORMAT
-
-### Date & Time
-
-* UNIX_TIMESTAMP()
-* FROM_UNIXTIME()
-
-### cast function
-
-### Bit function
-
-### encryption & compression
-
-* md5
-* sha1
-* password
-
-### json function
-
-Todo
-
-### Miscellaneous functions
-
-* version
-
-# References
-
-* H2 functions: http://www.h2database.com/html/functions.html
-* MySQL functions: https://dev.mysql.com/doc/refman/8.0/en/func-op-summary-ref.html
-* application-test.properties with H2 MySQL Mode support
-
-```properties
-### datasource
-spring.datasource.driver-class-name=org.h2.Driver
-spring.datasource.url=jdbc:h2:mem:public;MODE=MYSQL;DATABASE_TO_UPPER=false;INIT=CREATE SCHEMA IF NOT EXISTS public
-spring.datasource.username=sa
-
-```
-
 ## Function List
 
 N: not available,  Y: same,  A: available
@@ -472,3 +427,17 @@ N: not available,  Y: same,  A: available
 |YEAR|YEAR|Y|
 |YEARWEEK||N|
 
+
+# References
+
+* H2 functions: http://www.h2database.com/html/functions.html
+* MySQL functions: https://dev.mysql.com/doc/refman/8.0/en/func-op-summary-ref.html
+* application-test.properties with H2 MySQL Mode support
+
+```properties
+### datasource
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.url=jdbc:h2:mem:public;MODE=MYSQL;DATABASE_TO_UPPER=false;INIT=CREATE SCHEMA IF NOT EXISTS public
+spring.datasource.username=sa
+
+```
