@@ -126,6 +126,15 @@ public class DateTimeFunctions {
         return DateFormatUtils.format(date, javaPattern);
     }
 
+    public static String timeFormat(String timeText, String mysqlPattern) throws Exception {
+        Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd HH:mm:ss", "HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS", "HH:mm:ss.SSS");
+        String javaPattern = mysqlPattern;
+        for (Map.Entry<String, String> entry : mysqlToJavaDateFormat().entrySet()) {
+            javaPattern = javaPattern.replace(entry.getKey(), entry.getValue());
+        }
+        return DateFormatUtils.format(date, javaPattern);
+    }
+
     public static String lastDay(String dateText) throws Exception {
         LocalDate localDate = parseLocalDate(dateText);
         LocalDate lastDay = localDate.with(TemporalAdjusters.lastDayOfMonth());
