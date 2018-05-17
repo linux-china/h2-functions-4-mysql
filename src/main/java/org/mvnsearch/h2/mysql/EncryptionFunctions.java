@@ -5,6 +5,11 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.RandomUtils;
 
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.Arrays;
+
 import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA_224;
 
 /**
@@ -15,12 +20,12 @@ import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA_224;
 public class EncryptionFunctions {
 
 
-    public static String hex(String text) {
-        return Hex.encodeHexString(text.getBytes());
+    public static String hex(byte[] text) {
+        return Hex.encodeHexString(text);
     }
 
-    public static String unhex(String text) throws Exception {
-        return new String(Hex.decodeHex(text));
+    public static byte[] unhex(String text) throws Exception {
+        return Hex.decodeHex(text);
     }
 
     public static String password(String text) throws Exception {
@@ -39,11 +44,14 @@ public class EncryptionFunctions {
         return DigestUtils.md5Hex(text);
     }
 
-    public static String sha1(String text) {
-        if (text == null || text.isEmpty()) {
-            return text;
+    public static String sha1(Object text) {
+        if (text == null) return null;
+        if (text instanceof String) {
+            return DigestUtils.sha1Hex((String) text);
+        } else if (text instanceof byte[]) {
+            return DigestUtils.sha1Hex((byte[]) text);
         }
-        return DigestUtils.sha1Hex(text);
+        return null;
     }
 
     public static String sha(String text) {
@@ -68,5 +76,33 @@ public class EncryptionFunctions {
             return RandomUtils.nextBytes(length);
         }
         return null;
+    }
+
+    public static byte[] aesEncrypt(Object text, Object password) throws Exception {
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.ENCRYPT_MODE, generateSecretKey(password));
+        byte[] content;
+        if (text instanceof byte[]) {
+            content = (byte[]) text;
+        } else {
+            content = text.toString().getBytes();
+        }
+        return cipher.doFinal(content);
+    }
+
+    public static String aesDecrypt(byte[] content, Object password) throws Exception {
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.DECRYPT_MODE, generateSecretKey(password));
+        return new String(cipher.doFinal(content));
+    }
+
+    private static SecretKey generateSecretKey(Object password) {
+        byte[] content;
+        if (password instanceof byte[]) {
+            content = (byte[]) password;
+        } else {
+            content = password.toString().getBytes();
+        }
+        return new SecretKeySpec(Arrays.copyOfRange(DigestUtils.sha1(content), 0, 16), "AES");
     }
 }
