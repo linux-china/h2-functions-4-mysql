@@ -6,7 +6,9 @@ import org.apache.commons.lang3.time.DateUtils;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -115,5 +117,12 @@ public class DateTimeFunctions {
             javaPattern = javaPattern.replace(entry.getKey(), entry.getValue());
         }
         return DateFormatUtils.format(date, javaPattern);
+    }
+
+    public static String lastDay(String dateText) throws Exception {
+        Date date = DateUtils.parseDate(dateText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate lastDay = localDate.with(TemporalAdjusters.lastDayOfMonth());
+        return lastDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
 }
