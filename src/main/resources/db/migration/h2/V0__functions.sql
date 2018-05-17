@@ -20,6 +20,9 @@ CREATE ALIAS MAKEDATE FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.makeDate";
 CREATE ALIAS MAKETIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.makeTime";
 CREATE ALIAS SEC_TO_TIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.secondsToTime";
 CREATE ALIAS SLEEP FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.sleep";
+CREATE ALIAS STR_TO_DATE FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.strToDate";
+CREATE ALIAS SUBDATE FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.subDate";
+CREATE ALIAS SUBTIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.subTime";
 -- encrypt
 CREATE ALIAS MD5 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.md5";
 CREATE ALIAS SHA1 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.sha1";
