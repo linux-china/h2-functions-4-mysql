@@ -31,7 +31,7 @@ public class MiscFunctions {
     }
     
     public static String sessionUser() {
-        return "sa@127.0.0.1";
+        return "SA@127.0.0.1";
     }
 
 }
