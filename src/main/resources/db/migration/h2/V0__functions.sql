@@ -42,6 +42,7 @@ CREATE ALIAS RANDOM_BYTES FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.random
 CREATE ALIAS AES_ENCRYPT FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.aesEncrypt";
 CREATE ALIAS AES_DECRYPT FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.aesDecrypt";
 CREATE ALIAS CRC32 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.crc32";
+CREATE ALIAS CREATE_DIGEST FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.createDigest";
 -- string functions
 CREATE ALIAS BIN FOR "org.mvnsearch.h2.mysql.StringFunctions.bin";
 CREATE ALIAS UUID_SHORT FOR "org.mvnsearch.h2.mysql.StringFunctions.uuidShort";
