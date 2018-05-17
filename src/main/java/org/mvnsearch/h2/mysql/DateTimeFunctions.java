@@ -125,4 +125,8 @@ public class DateTimeFunctions {
         LocalDate lastDay = localDate.with(TemporalAdjusters.lastDayOfMonth());
         return lastDay.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
+
+    public static Date now() {
+        return new Date();
+    }
 }
