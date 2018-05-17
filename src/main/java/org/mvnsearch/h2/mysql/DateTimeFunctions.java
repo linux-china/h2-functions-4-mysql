@@ -206,6 +206,12 @@ public class DateTimeFunctions {
         }
     }
 
+    public static Long microSecond(String dateStr) throws Exception {
+        Date date = parseDate(dateStr);
+        return date.getTime() % 1000;
+
+    }
+
     private static String padNumber(Integer number) {
         if (number < 10) return "0" + number;
         return String.valueOf(number);
@@ -245,7 +251,7 @@ public class DateTimeFunctions {
     }
 
     public static Date parseDate(String dateStr) throws Exception {
-        return DateUtils.parseDate(dateStr, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
+        return DateUtils.parseDate(dateStr, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.S","HH:mm:ss","HH:mm:ss.S");
     }
 
     public static LocalDate parseLocalDate(String dateStr) throws Exception {
