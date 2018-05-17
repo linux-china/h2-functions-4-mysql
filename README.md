@@ -23,7 +23,7 @@ In you pom.xml add following dependency:
 * Manual: Add following code in your application. datasource is h2 datasource.
 
 ```
-org.h2.tools.RunScript.execute(dataSource.getConnection(), IOUtils.getReader(this.getClass().getResourceAsStream("/db/migration/h2/V0__functions.sql")));
+H2FunctionsLoader.loadMysqlFunctions(dataSource);
 ```
 
 ## Function List
