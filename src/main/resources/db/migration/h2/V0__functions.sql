@@ -15,6 +15,9 @@ CREATE ALIAS FROM_BASE64 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.unbase6
 CREATE ALIAS RANDOM_BYTES FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.randomBytes";
 CREATE ALIAS AES_ENCRYPT FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.aesEncrypt";
 CREATE ALIAS AES_DECRYPT FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.aesDecrypt";
+-- string functions
+CREATE ALIAS UUID FOR "org.mvnsearch.h2.mysql.StringFunctions.uuid";
+CREATE ALIAS BIN FOR "org.mvnsearch.h2.mysql.StringFunctions.bin";
 -- misc
 CREATE ALIAS FORMAT FOR "org.mvnsearch.h2.mysql.MiscFunctions.format";
 CREATE ALIAS VERSION FOR "org.mvnsearch.h2.mysql.MiscFunctions.version";
