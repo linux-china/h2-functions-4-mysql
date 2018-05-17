@@ -71,6 +71,10 @@ public class StringFunctions {
         return text1.compareTo(text2);
     }
 
+    public static String charset(String text) {
+        return "utf-8";
+    }
+
     public static byte[] compress(String text) throws Exception {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         OutputStream out = new DeflaterOutputStream(bos);
