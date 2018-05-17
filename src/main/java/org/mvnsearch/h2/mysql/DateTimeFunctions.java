@@ -87,7 +87,12 @@ public class DateTimeFunctions {
     }
 
     public static Long timeToSeconds(String timeText) throws Exception {
-        Date date = DateUtils.parseDate("1970-01-01 "+timeText+" UTC", "yyyy-MM-dd HH:mm:ss z");
-        return date.getTime() / 1000 ;
+        Date date = DateUtils.parseDate("1970-01-01 " + timeText + " UTC", "yyyy-MM-dd HH:mm:ss z");
+        return date.getTime() / 1000;
+    }
+
+    public static String time(String timeText) throws Exception {
+        Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
+        return DateFormatUtils.format(date, " HH:mm:ss");
     }
 }
