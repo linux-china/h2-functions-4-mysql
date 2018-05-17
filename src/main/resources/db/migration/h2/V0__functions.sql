@@ -13,6 +13,8 @@ CREATE ALIAS PASSWORD FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.password";
 CREATE ALIAS TO_BASE64 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.base64";
 CREATE ALIAS FROM_BASE64 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.unbase64";
 CREATE ALIAS RANDOM_BYTES FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.randomBytes";
+CREATE ALIAS AES_ENCRYPT FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.aesEncrypt";
+CREATE ALIAS AES_DECRYPT FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.aesDecrypt";
 -- misc
 CREATE ALIAS FORMAT FOR "org.mvnsearch.h2.mysql.MiscFunctions.format";
 CREATE ALIAS VERSION FOR "org.mvnsearch.h2.mysql.MiscFunctions.version";
