@@ -54,6 +54,7 @@ CREATE ALIAS REVERSE FOR "org.mvnsearch.h2.mysql.StringFunctions.reverse";
 CREATE ALIAS SUBSTRING_INDEX FOR "org.mvnsearch.h2.mysql.StringFunctions.subStringIndex";
 CREATE ALIAS STRCMP FOR "org.mvnsearch.h2.mysql.StringFunctions.strCmp";
 CREATE ALIAS CHARSET FOR "org.mvnsearch.h2.mysql.StringFunctions.charset";
+CREATE ALIAS FIELD FOR "org.mvnsearch.h2.mysql.StringFunctions.field";
 -- math functions
 CREATE ALIAS POW FOR "org.mvnsearch.h2.mysql.MathFunctions.pow";
 CREATE ALIAS CONV FOR "org.mvnsearch.h2.mysql.MathFunctions.conv";
@@ -63,4 +64,5 @@ CREATE ALIAS VERSION FOR "org.mvnsearch.h2.mysql.MiscFunctions.version";
 CREATE ALIAS CONNECTION_ID FOR "org.mvnsearch.h2.mysql.MiscFunctions.connectId";
 CREATE ALIAS SESSION_USER FOR "org.mvnsearch.h2.mysql.MiscFunctions.sessionUser";
 CREATE ALIAS SYSTEM_USER FOR "org.mvnsearch.h2.mysql.MiscFunctions.sessionUser";
+CREATE ALIAS CURRENT_ROLE FOR "org.mvnsearch.h2.mysql.MiscFunctions.currentRole";
 
