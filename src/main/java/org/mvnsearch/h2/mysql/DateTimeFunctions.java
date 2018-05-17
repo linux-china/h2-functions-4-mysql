@@ -3,7 +3,10 @@ package org.mvnsearch.h2.mysql;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -13,6 +16,7 @@ import java.util.TimeZone;
  * @author linux_china
  */
 public class DateTimeFunctions {
+    public static LocalDateTime ZERO_START_TIME = LocalDateTime.of(0, 1, 1, 0, 0, 0);
 
     /**
      * function for UNIX_TIMESTAMP
@@ -65,7 +69,13 @@ public class DateTimeFunctions {
     }
 
     public static Date fromDays(Integer days) {
-        LocalDateTime localDateTime = LocalDateTime.of(0, 1, 1, 0, 0);
-        return java.sql.Date.valueOf(localDateTime.plusDays(days).toLocalDate());
+        return java.sql.Date.valueOf(ZERO_START_TIME.plusDays(days).toLocalDate());
+    }
+
+    public static Integer toDays(String timeText) throws Exception {
+        LocalDate startDate = ZERO_START_TIME.toLocalDate();
+        Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yy-MM-dd");
+        LocalDate endDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return ((int) (ChronoUnit.DAYS.between(startDate, endDate)));
     }
 }
