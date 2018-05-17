@@ -103,6 +103,23 @@ public class StringFunctions {
         return 0;
     }
 
+    public static Long ord(String text) {
+        int character = text.charAt(0);
+        if (character < 256) {
+            return (long) character;
+        } else {
+            long sum = 0;
+            long step = 1;
+            byte[] bytes = text.getBytes();
+            for (byte aByte : bytes) {
+                sum = sum + aByte * step;
+                step = step * 256;
+            }
+            return sum;
+        }
+
+    }
+
     public static byte[] compress(String text) throws Exception {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         OutputStream out = new DeflaterOutputStream(bos);
