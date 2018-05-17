@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TimeZone;
 
 /**
@@ -94,5 +96,24 @@ public class DateTimeFunctions {
     public static String time(String timeText) throws Exception {
         Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
         return DateFormatUtils.format(date, " HH:mm:ss");
+    }
+
+    public static String dateFormat(String timeText, String mysqlPattern) throws Exception {
+        Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss");
+        //todo %H:%i:%s
+        Map<String, String> convert = new HashMap<>();
+        convert.put("%H", "HH");
+        convert.put("%i", "mm");
+        convert.put("%s", "ss");
+        convert.put("%W", "E");
+        convert.put("%Y", "yyyy");
+        convert.put("%m", "mm");
+        convert.put("%M", "M");
+        convert.put("%d", "dd");
+        String javaPattern = mysqlPattern;
+        for (Map.Entry<String, String> entry : convert.entrySet()) {
+            javaPattern = javaPattern.replace(entry.getKey(), entry.getValue());
+        }
+        return DateFormatUtils.format(date, javaPattern);
     }
 }
