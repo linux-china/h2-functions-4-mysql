@@ -1,9 +1,5 @@
 package org.mvnsearch.h2.mysql;
 
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.codec.digest.DigestUtils;
-
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -28,6 +24,14 @@ public class MiscFunctions {
         NumberFormat format = NumberFormat.getInstance(new Locale(locale));
         format.setMaximumFractionDigits(p);
         return format.format(value);
+    }
+
+    public static Integer connectId() {
+        return 1;
+    }
+    
+    public static String sessionUser() {
+        return "sa@127.0.0.1";
     }
 
 }
