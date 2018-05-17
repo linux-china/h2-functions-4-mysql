@@ -1,6 +1,6 @@
 package org.mvnsearch.h2.mysql;
 
-import java.util.UUID;
+import org.apache.commons.lang3.RandomUtils;
 
 /**
  * String functions
@@ -13,4 +13,7 @@ public class StringFunctions {
         return Long.toBinaryString(number);
     }
 
+    public static Long uuidShort() {
+        return RandomUtils.nextLong(Long.MAX_VALUE / 2, Long.MAX_VALUE);
+    }
 }
