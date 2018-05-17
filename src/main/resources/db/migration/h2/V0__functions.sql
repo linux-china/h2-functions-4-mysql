@@ -44,6 +44,7 @@ CREATE ALIAS IS_IPV6 FOR "org.mvnsearch.h2.mysql.StringFunctions.isIpv6";
 CREATE ALIAS IS_UUID FOR "org.mvnsearch.h2.mysql.StringFunctions.isUUID";
 CREATE ALIAS REVERSE FOR "org.mvnsearch.h2.mysql.StringFunctions.reverse";
 CREATE ALIAS SUBSTRING_INDEX FOR "org.mvnsearch.h2.mysql.StringFunctions.subStringIndex";
+CREATE ALIAS STRCMP FOR "org.mvnsearch.h2.mysql.StringFunctions.strCmp";
 -- math functions
 CREATE ALIAS POW FOR "org.mvnsearch.h2.mysql.MathFunctions.pow";
 -- misc
