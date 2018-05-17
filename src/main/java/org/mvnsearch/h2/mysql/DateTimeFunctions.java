@@ -9,10 +9,8 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TimeZone;
+import java.time.temporal.WeekFields;
+import java.util.*;
 
 /**
  * date time functions for mysql
@@ -165,6 +163,24 @@ public class DateTimeFunctions {
         } else {
             return DateFormatUtils.format(date, "HH:mm:ss");
         }
+    }
+
+    public static Integer yearWeek(String dateStr, Integer mode) throws Exception {
+        Date date = DateUtils.parseDate(dateStr, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int day = localDate.getDayOfWeek().getValue();
+        if (day > 0) {
+            localDate = localDate.minusDays(day);
+        }
+        int year = localDate.getYear();
+        int offset = mode == 0 ? 1 : 0;
+        int weekNumber = localDate.get(WeekFields.of(Locale.getDefault()).weekOfYear()) - offset;
+        return year * 100 + weekNumber;
+    }
+
+
+    public static Integer yearWeek(String dateStr) throws Exception {
+        return yearWeek(dateStr, 0);
     }
 
     private static String padNumber(Integer number) {
