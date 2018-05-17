@@ -9,6 +9,8 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Arrays;
+import java.util.zip.CRC32;
+import java.util.zip.Checksum;
 
 import static org.apache.commons.codec.digest.MessageDigestAlgorithms.SHA_224;
 
@@ -88,6 +90,14 @@ public class EncryptionFunctions {
             content = text.toString().getBytes();
         }
         return cipher.doFinal(content);
+    }
+
+    public static Long crc32(String text) {
+        if (text == null) return null;
+        byte[] bytes = text.getBytes();
+        Checksum checksum = new CRC32();
+        checksum.update(bytes, 0, bytes.length);
+        return checksum.getValue();
     }
 
     public static String aesDecrypt(byte[] content, Object password) throws Exception {
