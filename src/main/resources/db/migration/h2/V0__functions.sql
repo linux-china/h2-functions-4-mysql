@@ -37,6 +37,7 @@ CREATE ALIAS FIND_IN_SET FOR "org.mvnsearch.h2.mysql.StringFunctions.findInSet";
 CREATE ALIAS IS_IPV4 FOR "org.mvnsearch.h2.mysql.StringFunctions.isIpv4";
 CREATE ALIAS IS_IPV6 FOR "org.mvnsearch.h2.mysql.StringFunctions.isIpv6";
 CREATE ALIAS IS_UUID FOR "org.mvnsearch.h2.mysql.StringFunctions.isUUID";
+CREATE ALIAS REVERSE FOR "org.mvnsearch.h2.mysql.StringFunctions.reverse";
 -- math functions
 CREATE ALIAS POW FOR "org.mvnsearch.h2.mysql.MathFunctions.pow";
 -- misc
