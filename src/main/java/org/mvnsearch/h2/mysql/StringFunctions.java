@@ -13,11 +13,4 @@ public class StringFunctions {
         return Long.toBinaryString(number);
     }
 
-    public static String uuid() {
-        return UUID.randomUUID().toString();
-    }
-
-    public static Integer charLength(String text) {
-        return text.toCharArray().length;
-    }
 }
