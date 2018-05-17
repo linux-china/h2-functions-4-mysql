@@ -4,6 +4,7 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * date time functions for mysql
@@ -48,5 +49,17 @@ public class DateTimeFunctions {
     public static String date(String text) throws Exception {
         Date date = DateUtils.parseDate(text, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
         return DateFormatUtils.format(date, "yyyy-MM-dd");
+    }
+
+    public static String utcTimestamp() {
+        return DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone("UTC"));
+    }
+
+    public static String utcDate() {
+        return DateFormatUtils.format(new Date(), "yyyy-MM-dd", TimeZone.getTimeZone("UTC"));
+    }
+
+    public static String utcTime() {
+        return DateFormatUtils.format(new Date(), "HH:mm:ss", TimeZone.getTimeZone("UTC"));
     }
 }
