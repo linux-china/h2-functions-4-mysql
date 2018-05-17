@@ -28,6 +28,7 @@ CREATE ALIAS YEARWEEK FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.yearWeek";
 CREATE ALIAS WEEKOFYEAR FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.weekOfYear";
 CREATE ALIAS WEEKDAY FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.weekDay";
 CREATE ALIAS MICROSECOND FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.microSecond";
+CREATE ALIAS CONVERT_TZ FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.convertTZ";
 -- encrypt
 CREATE ALIAS MD5 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.md5";
 CREATE ALIAS SHA1 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.sha1";
