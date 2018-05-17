@@ -117,7 +117,11 @@ public class StringFunctions {
             }
             return sum;
         }
+    }
 
+    public static String quote(String text) {
+        String text2 = StringUtils.replace(text, "'", "''");
+        return StringUtils.replace(text2, "\\", "\\\\");
     }
 
     public static byte[] compress(String text) throws Exception {
