@@ -75,6 +75,25 @@ public class StringFunctions {
         return "utf-8";
     }
 
+    public static String mid(String text, Integer start) {
+        return text.substring(start);
+    }
+
+    public static String mid(String text, Integer start, Integer length) {
+        int newStart = start;
+        if (start < 0) {
+            newStart = start + text.length();
+            if (newStart < 0) {
+                newStart = 0;
+            }
+        }
+        int end = newStart + length;
+        if (end > text.length()) {
+            end = text.length();
+        }
+        return text.substring(newStart, end);
+    }
+
     public static Integer field(String... args) {
         for (int i = 1; i < args.length; i++) {
             if (args[i].equals(args[0])) {
