@@ -31,6 +31,7 @@ CREATE ALIAS MICROSECOND FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.microSeco
 CREATE ALIAS CONVERT_TZ FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.convertTZ";
 CREATE ALIAS PERIOD_ADD FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.periodAdd";
 CREATE ALIAS PERIOD_DIFF FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.periodDiff";
+CREATE ALIAS TIMEDIFF FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.timeDiff";
 -- encrypt
 CREATE ALIAS MD5 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.md5";
 CREATE ALIAS SHA1 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.sha1";
