@@ -17,6 +17,7 @@ import java.util.TimeZone;
  */
 public class DateTimeFunctions {
     public static LocalDateTime ZERO_START_TIME = LocalDateTime.of(0, 1, 1, 0, 0, 0);
+    public static LocalDateTime UNIX_START_TIME = LocalDateTime.of(1970, 1, 1, 0, 0, 0);
 
     /**
      * function for UNIX_TIMESTAMP
@@ -72,10 +73,16 @@ public class DateTimeFunctions {
         return java.sql.Date.valueOf(ZERO_START_TIME.plusDays(days).toLocalDate());
     }
 
-    public static Integer toDays(String timeText) throws Exception {
+    public static Long toDays(String timeText) throws Exception {
         LocalDate startDate = ZERO_START_TIME.toLocalDate();
         Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yy-MM-dd");
         LocalDate endDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        return ((int) (ChronoUnit.DAYS.between(startDate, endDate)));
+        return (ChronoUnit.DAYS.between(startDate, endDate));
+    }
+
+    public static Long toSeconds(String timeText) throws Exception {
+        Date date = DateUtils.parseDate(timeText, "yyyy-MM-dd", "yy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yy-MM-dd HH:mm:ss");
+        long days = ChronoUnit.DAYS.between(ZERO_START_TIME.toLocalDate(), UNIX_START_TIME.toLocalDate());
+        return date.getTime() / 1000 + days * 24 * 60 * 60;
     }
 }
