@@ -85,4 +85,9 @@ public class DateTimeFunctions {
         long days = ChronoUnit.DAYS.between(ZERO_START_TIME.toLocalDate(), UNIX_START_TIME.toLocalDate());
         return date.getTime() / 1000 + days * 24 * 60 * 60;
     }
+
+    public static Long timeToSeconds(String timeText) throws Exception {
+        Date date = DateUtils.parseDate("1970-01-01 "+timeText+" UTC", "yyyy-MM-dd HH:mm:ss z");
+        return date.getTime() / 1000 ;
+    }
 }
