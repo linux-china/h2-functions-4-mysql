@@ -59,3 +59,7 @@ SELECT ADDDATE('2008-01-02', 31);
 SELECT SUBTIME('2007-12-31 23:59:59.999999','1 1:1:1.000002');
 SELECT SUBSTRING_INDEX('www.mysql.com', '.', 2);
 SELECT SUBSTRING_INDEX('www.mysql.com', '.', -2);
+SELECT STRCMP('text', 'text2');
+select current_user();
+select connection_id();
+select session_user();
