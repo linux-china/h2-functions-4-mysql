@@ -56,6 +56,7 @@ CREATE ALIAS STRCMP FOR "org.mvnsearch.h2.mysql.StringFunctions.strCmp";
 CREATE ALIAS CHARSET FOR "org.mvnsearch.h2.mysql.StringFunctions.charset";
 CREATE ALIAS FIELD FOR "org.mvnsearch.h2.mysql.StringFunctions.field";
 CREATE ALIAS MID FOR "org.mvnsearch.h2.mysql.StringFunctions.mid";
+CREATE ALIAS ORD FOR "org.mvnsearch.h2.mysql.StringFunctions.ord";
 -- math functions
 CREATE ALIAS POW FOR "org.mvnsearch.h2.mysql.MathFunctions.pow";
 CREATE ALIAS CONV FOR "org.mvnsearch.h2.mysql.MathFunctions.conv";
