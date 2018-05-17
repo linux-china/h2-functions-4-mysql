@@ -46,8 +46,13 @@ public class DateTimeFunctions {
     }
 
     public static Date addDate(String dateText, Integer days) throws Exception {
-        Date date = DateUtils.parseDate(dateText, "yyyy-MM-dd");
+        Date date = DateUtils.parseDate(dateText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
         return new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
+    }
+
+    public static Date subDate(String dateText, Integer days) throws Exception {
+        Date date = DateUtils.parseDate(dateText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
+        return new Date(date.getTime() - days * 24L * 60L * 60L * 1000L);
     }
 
     public static Date addTime(String dateText, String timeText) throws Exception {
@@ -55,6 +60,13 @@ public class DateTimeFunctions {
         Date time = DateUtils.parseDate(timeText, "HH:mm:ss", "HH:mm:ss.S", "dd HH:mm:ss", "dd HH:mm:ss.S");
         return new Date(date.getTime() + time.getTime());
     }
+
+    public static Date subTime(String dateText, String timeText) throws Exception {
+        Date date = DateUtils.parseDate(dateText, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.S", "HH:mm:ss", "HH:mm:ss.S", "dd HH:mm:ss", "dd HH:mm:ss.S");
+        Date time = DateUtils.parseDate(timeText, "HH:mm:ss", "HH:mm:ss.S", "dd HH:mm:ss", "dd HH:mm:ss.S");
+        return new Date(date.getTime() - time.getTime());
+    }
+
 
     public static String date(String text) throws Exception {
         Date date = DateUtils.parseDate(text, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.SSS");
