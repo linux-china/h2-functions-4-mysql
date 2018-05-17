@@ -75,6 +75,15 @@ public class StringFunctions {
         return "utf-8";
     }
 
+    public static Integer field(String... args) {
+        for (int i = 1; i < args.length; i++) {
+            if (args[i].equals(args[0])) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
     public static byte[] compress(String text) throws Exception {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         OutputStream out = new DeflaterOutputStream(bos);
