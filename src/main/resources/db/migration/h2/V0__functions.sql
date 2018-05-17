@@ -29,6 +29,8 @@ CREATE ALIAS AES_DECRYPT FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.aesDecr
 CREATE ALIAS BIN FOR "org.mvnsearch.h2.mysql.StringFunctions.bin";
 CREATE ALIAS UUID_SHORT FOR "org.mvnsearch.h2.mysql.StringFunctions.uuidShort";
 CREATE ALIAS FIND_IN_SET FOR "org.mvnsearch.h2.mysql.StringFunctions.findInSet";
+CREATE ALIAS IS_IPV4 FOR "org.mvnsearch.h2.mysql.StringFunctions.isIpv4";
+CREATE ALIAS IS_IPV6 FOR "org.mvnsearch.h2.mysql.StringFunctions.isIpv6";
 -- math functions
 CREATE ALIAS POW FOR "org.mvnsearch.h2.mysql.MathFunctions.pow";
 -- misc
