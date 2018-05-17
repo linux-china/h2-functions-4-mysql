@@ -36,7 +36,7 @@ public class DateTimeFunctions {
      * @return current time millis
      */
     public static Long unixTimestamp(String text) throws Exception {
-        return DateUtils.parseDate(text, "YYYY-MM-DD HH:MM:SS", "YYYY-MM-DD").getTime();
+        return DateUtils.parseDate(text, "YYYY-MM-DD", "YYYY-MM-DD HH:mm:ss", "YYYY-MM-DD HH:mm:ss.S").getTime();
     }
 
     public static Date fromUnixTime(Long unixTime) {
@@ -251,7 +251,7 @@ public class DateTimeFunctions {
     }
 
     public static Date parseDate(String dateStr) throws Exception {
-        return DateUtils.parseDate(dateStr, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.S","HH:mm:ss","HH:mm:ss.S");
+        return DateUtils.parseDate(dateStr, "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm:ss.S", "HH:mm:ss", "HH:mm:ss.S");
     }
 
     public static LocalDate parseLocalDate(String dateStr) throws Exception {
