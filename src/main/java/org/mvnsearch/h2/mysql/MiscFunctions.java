@@ -29,9 +29,13 @@ public class MiscFunctions {
     public static Integer connectId() {
         return 1;
     }
-    
+
     public static String sessionUser() {
         return "SA@127.0.0.1";
+    }
+
+    public static String currentRole() {
+        return "`r1`@`%`,`r2`@`%`";
     }
 
 }
