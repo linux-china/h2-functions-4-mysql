@@ -14,6 +14,10 @@ CREATE ALIAS TO_SECONDS FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.toSeconds"
 CREATE ALIAS TIME_TO_SEC FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.timeToSeconds";
 CREATE ALIAS DATE_FORMAT FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.dateFormat";
 CREATE ALIAS LAST_DAY FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.lastDay";
+CREATE ALIAS LOCALTIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.now";
+CREATE ALIAS LOCALTIMESTAMP FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.now";
+CREATE ALIAS MAKEDATE FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.makeDate";
+CREATE ALIAS MAKETIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.makeTime";
 -- encrypt
 CREATE ALIAS MD5 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.md5";
 CREATE ALIAS SHA1 FOR "org.mvnsearch.h2.mysql.EncryptionFunctions.sha1";
