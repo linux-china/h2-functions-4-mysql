@@ -16,4 +16,8 @@ public class StringFunctions {
     public static String uuid() {
         return UUID.randomUUID().toString();
     }
+
+    public static Integer charLength(String text) {
+        return text.toCharArray().length;
+    }
 }
