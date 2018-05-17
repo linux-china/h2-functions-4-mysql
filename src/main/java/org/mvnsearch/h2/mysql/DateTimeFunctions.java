@@ -6,6 +6,7 @@ import org.apache.commons.lang3.time.DateUtils;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
@@ -210,6 +211,18 @@ public class DateTimeFunctions {
         Date date = parseDate(dateStr);
         return date.getTime() % 1000;
 
+    }
+
+    public static String convertTZ(String dateStr, String originTZ, String targetTZ) throws Exception {
+        Date date = DateUtils.parseDate(dateStr + " " + originTZ, "yyyy-MM-dd HH:mm:ss z", "yyyy-MM-dd HH:mm:ss Z", "yyyy-MM-dd HH:mm:ss XXX");
+        ZoneId zoneId;
+        try {
+            zoneId = ZoneId.of(targetTZ);
+        } catch (Exception e) {
+            zoneId = ZoneOffset.of(targetTZ);
+        }
+        LocalDate localDate = date.toInstant().atZone(zoneId).toLocalDate();
+        return DateFormatUtils.format(java.sql.Date.valueOf(localDate), "yyyy-MM-dd HH:mm:ss");
     }
 
     private static String padNumber(Integer number) {
