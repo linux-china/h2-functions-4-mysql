@@ -132,7 +132,11 @@ public class DateTimeFunctions {
 
     public static Date makeDate(Integer year, Integer days) {
         LocalDateTime start = LocalDateTime.of(year, 1, 1, 0, 0, 0);
-        LocalDateTime end = start.plusDays(days-1);
+        LocalDateTime end = start.plusDays(days - 1);
         return java.sql.Date.valueOf(end.toLocalDate());
+    }
+
+    public static String makeTime(Integer hours, Integer minutes, Integer seconds) {
+        return hours + ":" + minutes + ":" + seconds;
     }
 }
