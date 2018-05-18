@@ -30,7 +30,7 @@ public class EncryptionFunctions {
         return Hex.decodeHex(text);
     }
 
-    public static String password(String text) throws Exception {
+    public static String password(byte[] text) throws Exception {
         return "*" + sha1(unhex(sha1(text)));
     }
 
@@ -46,21 +46,15 @@ public class EncryptionFunctions {
         return DigestUtils.md5Hex(text);
     }
 
-    public static String sha1(Object text) {
-        if (text == null) return null;
-        if (text instanceof String) {
-            return DigestUtils.sha1Hex((String) text);
-        } else if (text instanceof byte[]) {
-            return DigestUtils.sha1Hex((byte[]) text);
-        }
-        return null;
+    public static String sha1(byte[] text) {
+        return DigestUtils.sha1Hex(text);
     }
 
-    public static String sha(String text) {
+    public static String sha(byte[] text) {
         return sha1(text);
     }
 
-    public static String sha2(String text, Integer hashLength) throws Exception {
+    public static String sha2(byte[] text, Integer hashLength) throws Exception {
         if (hashLength == 0 || hashLength == 256) {
             return DigestUtils.sha256Hex(text);
         } else if (hashLength == 224) {
@@ -80,16 +74,10 @@ public class EncryptionFunctions {
         return null;
     }
 
-    public static byte[] aesEncrypt(Object text, Object password) throws Exception {
+    public static byte[] aesEncrypt(byte[] text, byte[] password) throws Exception {
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE, generateSecretKey(password));
-        byte[] content;
-        if (text instanceof byte[]) {
-            content = (byte[]) text;
-        } else {
-            content = text.toString().getBytes();
-        }
-        return cipher.doFinal(content);
+        return cipher.doFinal(text);
     }
 
     public static Long crc32(String text) {
@@ -101,22 +89,16 @@ public class EncryptionFunctions {
     }
 
     public static byte[] createDigest(String digestType, String text) {
-        return new DigestUtils(digestType.replace("SHA","SHA-")).digest(text);
+        return new DigestUtils(digestType.replace("SHA", "SHA-")).digest(text);
     }
 
-    public static String aesDecrypt(byte[] content, Object password) throws Exception {
+    public static String aesDecrypt(byte[] content, byte[] password) throws Exception {
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.DECRYPT_MODE, generateSecretKey(password));
         return new String(cipher.doFinal(content));
     }
 
-    private static SecretKey generateSecretKey(Object password) {
-        byte[] content;
-        if (password instanceof byte[]) {
-            content = (byte[]) password;
-        } else {
-            content = password.toString().getBytes();
-        }
-        return new SecretKeySpec(Arrays.copyOfRange(DigestUtils.sha1(content), 0, 16), "AES");
+    private static SecretKey generateSecretKey(byte[] password) {
+        return new SecretKeySpec(Arrays.copyOfRange(DigestUtils.sha1(password), 0, 16), "AES");
     }
 }
