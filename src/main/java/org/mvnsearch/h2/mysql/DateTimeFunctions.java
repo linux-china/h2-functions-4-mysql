@@ -56,10 +56,6 @@ public class DateTimeFunctions {
         return ZonedDateTime.now(ZoneId.of("UTC")).toLocalDate();
     }
 
-    public static LocalTime utcTime() {
-        return ZonedDateTime.now(ZoneId.of("UTC")).toLocalTime();
-    }
-
     public static LocalDate fromDays(Integer days) {
         return ZERO_START_TIME.plusDays(days).toLocalDate();
     }
@@ -123,11 +119,6 @@ public class DateTimeFunctions {
 
     public static String makeTime(Integer hours, Integer minutes, Integer seconds) {
         return padNumber((long) hours) + ":" + padNumber((long) minutes) + ":" + padNumber((long) seconds);
-    }
-
-    public static Integer sleep(Integer seconds) throws Exception {
-        Thread.sleep(seconds * 1000);
-        return 0;
     }
 
     public static String strToDate(String dateStr, String mysqlPattern) throws Exception {
