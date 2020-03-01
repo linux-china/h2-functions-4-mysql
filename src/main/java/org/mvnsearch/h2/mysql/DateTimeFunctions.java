@@ -51,6 +51,10 @@ public class DateTimeFunctions {
     public static LocalDateTime utcTimestamp() {
         return ZonedDateTime.now(ZoneId.of("UTC")).toLocalDateTime();
     }
+    
+    public static LocalTime utcTime() {
+         return ZonedDateTime.now(ZoneId.of("UTC")).toLocalTime();
+    }
 
     public static LocalDate utcDate() {
         return ZonedDateTime.now(ZoneId.of("UTC")).toLocalDate();
