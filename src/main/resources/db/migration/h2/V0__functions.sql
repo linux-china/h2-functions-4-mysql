@@ -1,8 +1,7 @@
 -- date & time
 CREATE ALIAS ADDDATE FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.addDate";
 CREATE ALIAS ADDTIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.addTime";
-CREATE ALIAS DATE FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.date";
-CREATE ALIAS TIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.time";
+
 CREATE ALIAS UTC_TIMESTAMP FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.utcTimestamp";
 CREATE ALIAS UTC_DATE FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.utcDate";
 CREATE ALIAS UTC_TIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.utcTime";
