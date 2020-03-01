@@ -18,8 +18,8 @@ public class H2FunctionsLoader {
             Connection conn = dataSource.getConnection();
             RunScript.execute(conn, IOUtils.getReader(H2FunctionsLoader.class.getResourceAsStream("/db/migration/h2/V0__functions.sql")));
             conn.close();
-        } catch (Exception ignore) {
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
