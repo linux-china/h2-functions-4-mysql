@@ -24,27 +24,7 @@ public class DateTimeFunctions {
     public static LocalDateTime UNIX_START_TIME = LocalDateTime.of(1970, 1, 1, 0, 0, 0);
     public static ZoneOffset DEFAULT_ZONE_OFFSET = OffsetDateTime.now().getOffset();
 
-    /**
-     * function for UNIX_TIMESTAMP
-     *
-     * @return current time millis
-     */
-    public static Long unixTimestamp() {
-        return System.currentTimeMillis();
-    }
 
-    /**
-     * function for UNIX_TIMESTAMP
-     *
-     * @return current time millis
-     */
-    public static Long unixTimestamp(Timestamp timestamp) throws Exception {
-        return timestamp.getTime();
-    }
-
-    public static LocalDateTime fromUnixTime(Long unixTime) {
-        return LocalDateTime.ofEpochSecond(unixTime, 0, DEFAULT_ZONE_OFFSET);
-    }
 
     public static Date addDate(Timestamp date, Integer days) throws Exception {
         return new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
