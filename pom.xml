@@ -4,7 +4,7 @@
 
     <groupId>org.mvnsearch</groupId>
     <artifactId>h2-functions-4-mysql</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>h2-functions-4-mysql</name>
