@@ -13,9 +13,9 @@ In you pom.xml add following dependency:
 
 ```xml
 <dependency>
-    <groupId>org.mvnsearch.mysql</groupId>
+    <groupId>org.mvnsearch</groupId>
     <artifactId>h2-functions-4-mysql</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -315,5 +315,4 @@ N: not available,  Y: same,  A: available
 spring.datasource.driver-class-name=org.h2.Driver
 spring.datasource.url=jdbc:h2:mem:public;MODE=MYSQL;DATABASE_TO_UPPER=false;INIT=CREATE SCHEMA IF NOT EXISTS public
 spring.datasource.username=sa
-
 ```
