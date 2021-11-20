@@ -1,5 +1,8 @@
 h2-functions-4-mysql
 ======================
+
+![Version](https://img.shields.io/maven-central/v/org.mvnsearch/h2-functions-4-mysql)
+
 H2 User defined functions for MySQL.
 
 # Why this project?
