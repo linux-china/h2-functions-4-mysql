@@ -15,8 +15,6 @@ CREATE ALIAS TIME_TO_SEC FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.timeToSec
 CREATE ALIAS DATE_FORMAT FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.dateFormat";
 CREATE ALIAS TIME_FORMAT FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.timeFormat";
 CREATE ALIAS LAST_DAY FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.lastDay";
-CREATE ALIAS LOCALTIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.now";
-CREATE ALIAS LOCALTIMESTAMP FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.now";
 CREATE ALIAS MAKEDATE FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.makeDate";
 CREATE ALIAS MAKETIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.makeTime";
 CREATE ALIAS SEC_TO_TIME FOR "org.mvnsearch.h2.mysql.DateTimeFunctions.secondsToTime";
@@ -68,7 +66,4 @@ CREATE ALIAS CONV FOR "org.mvnsearch.h2.mysql.MathFunctions.conv";
 CREATE ALIAS FORMAT FOR "org.mvnsearch.h2.mysql.MiscFunctions.format";
 CREATE ALIAS VERSION FOR "org.mvnsearch.h2.mysql.MiscFunctions.version";
 CREATE ALIAS CONNECTION_ID FOR "org.mvnsearch.h2.mysql.MiscFunctions.connectId";
-CREATE ALIAS SESSION_USER FOR "org.mvnsearch.h2.mysql.MiscFunctions.sessionUser";
-CREATE ALIAS SYSTEM_USER FOR "org.mvnsearch.h2.mysql.MiscFunctions.sessionUser";
-CREATE ALIAS CURRENT_ROLE FOR "org.mvnsearch.h2.mysql.MiscFunctions.currentRole";
 

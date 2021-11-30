@@ -131,10 +131,6 @@ public class DateTimeFunctions {
         return localDate.with(TemporalAdjusters.lastDayOfMonth());
     }
 
-    public static LocalDateTime now() {
-        return LocalDateTime.now();
-    }
-
     public static Date makeDate(Integer year, Integer days) {
         LocalDateTime start = LocalDateTime.of(year, 1, 1, 0, 0, 0);
         LocalDateTime end = start.plusDays(days - 1);
