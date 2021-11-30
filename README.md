@@ -7,18 +7,32 @@ H2 User defined functions for MySQL.
 
 # Why this project?
 
-I always use H2 for unit test instead of real MySQL(Docker), but some MySQL functions are not available in H2.
-So I create this project to define some functions for MySQL and make unit test easy.
+I always use H2 for unit test instead of real MySQL(Docker), but some MySQL functions are not available in H2. So I create this project to define some functions for MySQL and make
+unit test easy.
 
 # How to use?
 
-In you pom.xml add following dependency: 
+In you pom.xml add following dependency:
+
+For H2 1.4.x, please use 1.0.0 version as following:
 
 ```xml
+
 <dependency>
     <groupId>org.mvnsearch</groupId>
     <artifactId>h2-functions-4-mysql</artifactId>
     <version>1.0.0</version>
+</dependency>
+```
+
+For H2 2.0.x, please use 2.0.0 version as following:
+
+```xml
+
+<dependency>
+    <groupId>org.mvnsearch</groupId>
+    <artifactId>h2-functions-4-mysql</artifactId>
+    <version>2.0.0</version>
 </dependency>
 ```
 
@@ -31,7 +45,7 @@ H2FunctionsLoader.loadMysqlFunctions(dataSource);
 
 ## Function List
 
-N: not available,  Y: same,  A: available
+N: not available, Y: same, A: available
 
 | MySQL             |        H2         |                                                   Status |
 |:------------------|:-----------------:|---------------------------------------------------------:|
@@ -305,7 +319,6 @@ N: not available,  Y: same,  A: available
 | WEIGHT_STRING                        || ![](https://via.placeholder.com/15/f03c15/000000?text=N) |
 | YEAR              |       YEAR        |                                                        Y |
 | YEARWEEK                             ||                                                        A |
-
 
 # References
 
