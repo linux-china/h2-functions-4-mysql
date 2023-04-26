@@ -43,6 +43,13 @@ For H2 2.0.x, please use 2.0.0 version as following:
 H2FunctionsLoader.loadMysqlFunctions(dataSource);
 ```
 
+* From H2 210, and you can use INIT parameter to load functions automatically.
+
+```
+String jdbcUrl = "jdbc:h2:mem:sample;INIT=RUNSCRIPT FROM 'classpath:db/migration/h2/V0_functions.sql'";
+String jdbcUrl2 = "jdbc:h2:mem:sample;INIT=RUNSCRIPT FROM 'classpath:db/migration/h2/V0_functions.sql';RUNSCRIPT FROM 'classpath:your_script.sql'";
+```
+
 ## Function List
 
 N: not available, Y: same, A: available
